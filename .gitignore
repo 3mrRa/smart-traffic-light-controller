@@ -1,0 +1,9 @@
+# Simulation outputs
+*.vcd
+*.vvp
+traffic_sim
+*.out
+
+# Editor / OS files
+.DS_Store
+.vscode/
