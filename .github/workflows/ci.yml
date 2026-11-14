@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  simulate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Icarus Verilog
+        run: sudo apt-get update && sudo apt-get install -y iverilog
+      - name: Regression + board wrapper
+        run: make test CYCLES=20000
+      - name: Extra random seeds
+        run: make seeds
+
+  synthesize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Yosys
+        run: sudo apt-get update && sudo apt-get install -y yosys
+      - name: Synthesis check
+        run: make synth
