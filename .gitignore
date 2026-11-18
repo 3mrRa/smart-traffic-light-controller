@@ -7,3 +7,6 @@ traffic_sim
 # Editor / OS files
 .DS_Store
 .vscode/
+
+# Build directory
+build/
